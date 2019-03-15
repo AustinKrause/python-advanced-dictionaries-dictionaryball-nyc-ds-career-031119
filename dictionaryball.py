@@ -94,20 +94,11 @@ def player_numbers(a_list_of_entries, team_name):
 
 #find the stats for a given player in the dataset
 def player_stats(a_list_of_entries, player_name):
-    player_stats = {}
     for entry in a_list_of_entries:
         for player in entry['players']:
             if player['name'] == player_name:
-                player_stats['Name'] = player['name']
-                player_stats['Number'] = player['number']
-                player_stats['Shoe'] = player['shoe']
-                player_stats['Points'] = player['points']
-                player_stats['Rebounds'] = player['number']
-                player_stats['Assists'] = player['assists']
-                player_stats['Steals'] = player['steals']
-                player_stats['Blocks'] = player['blocks']
-                player_stats['Slam_Dunks'] = player['slam_dunks']
-    return player_stats
+                return player
+
 
 #print(player_stats(game_dictionary, 'Alan Anderson'))
 
@@ -158,7 +149,7 @@ def winning_team(a_list_of_entries):
     charlotte_hornets_points = team_points(game_dictionary, "Charlotte Hornets")
     if brooklyn_nets_points > charlotte_hornets_points:
         return "Brooklyn Nets win"
-    if brooklyn_nets_points < charlotte_hornets_points:
+    elif brooklyn_nets_points < charlotte_hornets_points:
         return "Charlotte Hornets wins"
     else:
         return "It's a tie!"
