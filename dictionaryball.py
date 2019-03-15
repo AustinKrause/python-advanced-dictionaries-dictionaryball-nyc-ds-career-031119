@@ -26,12 +26,15 @@ game_dictionary = [{'home': True, 'team_name': 'Brooklyn Nets', 'colors': ['blac
                                 {'name': 'Brendan Haywood','number': 33, 'shoe': 15, 'points': 6, 'rebounds': 12,
                                  'assists': 12, 'steals': 22, 'blocks': 5, 'slam_dunks': 12}]}]
 
+
+#return the entire game dictionary
 def game_dict():
     return game_dictionary
 
+#print(game_dict())
 
-# Build a function, num_points_scored that takes in an argument of a player's name and returns the number of points scored for that player.
-# Think about where in the dictionary you will find a player's points. How can you iterate down into that level? Think about the return value of your function.
+
+#find the number of points scored for a particular player in the dataset
 def num_points_scored(a_list_of_entries, player_name):
     num_of_points = None
     for entry in a_list_of_entries:
@@ -42,6 +45,8 @@ def num_points_scored(a_list_of_entries, player_name):
 
 #print(num_points_scored(game_dictionary, 'Alan Anderson'))
 
+
+#find the shoe size of a particular player in the dataset
 def shoe_size(a_list_of_entries, player_name):
     shoe_size = None
     for entry in a_list_of_entries:
@@ -52,6 +57,8 @@ def shoe_size(a_list_of_entries, player_name):
 
 #print(shoe_size(game_dictionary, 'Alan Anderson'))
 
+
+#find the team colors of a particular team in the dataset
 def team_colors(a_list_of_entries, team_name):
     team_colors = []
     for entry in a_list_of_entries:
@@ -61,6 +68,8 @@ def team_colors(a_list_of_entries, team_name):
 
 #print(team_colors(game_dictionary,'Brooklyn Nets'))
 
+
+#find the names of the teams who are playing in the dataset
 def team_names(a_list_of_entries):
     team_names = []
     for element in a_list_of_entries:
@@ -69,7 +78,8 @@ def team_names(a_list_of_entries):
 
 #print(team_names(game_dictionary))
 
-#, that takes in an argument of a team name and returns a list of the jersey number's for that team.
+
+#find the numbers of the players for a team in the dataset
 def player_numbers(a_list_of_entries, team_name):
     jersey_numbers = []
     for entry in a_list_of_entries:
@@ -81,8 +91,8 @@ def player_numbers(a_list_of_entries, team_name):
 # print(player_numbers(game_dictionary, 'Brooklyn Nets'))
 # print(player_numbers(game_dictionary, 'Charlotte Hornets'))
 
-#takes in an argument of a player's name and returns a dictionary of that player's stats.
-#Check out the following example of the expected return value of the player_stats function:
+
+#find the stats for a given player in the dataset
 def player_stats(a_list_of_entries, player_name):
     player_stats = {}
     for entry in a_list_of_entries:
@@ -101,6 +111,8 @@ def player_stats(a_list_of_entries, player_name):
 
 #print(player_stats(game_dictionary, 'Alan Anderson'))
 
+
+#find the number of rebounds for the player with the largest shoe size in the dataset
 def big_shoe_rebounds(a_list_of_entries):
     largest_shoe_size = 0
     number_of_rebounds = 0
@@ -113,7 +125,8 @@ def big_shoe_rebounds(a_list_of_entries):
 
 #print(big_shoe_rebounds(game_dictionary))
 
-#Which player has the most points? Call the function most_points_scored.
+
+#find the player with the most points in the dataset
 def most_points_scored(a_list_of_entries):
     most_points = 0
     for entry in a_list_of_entries:
@@ -124,7 +137,8 @@ def most_points_scored(a_list_of_entries):
 
 #print(most_points(game_dictionary))
 
-#Which team has the most points? Call the function winning_team
+
+#find the number of points a particular team has scored
 def team_points(a_list_of_entries, team_name):
     all_player_points = 0
     for entry in a_list_of_entries:
@@ -134,6 +148,11 @@ def team_points(a_list_of_entries, team_name):
                 all_player_points += player_points
     return all_player_points
 
+# print(team_points(game_dictionary, 'Brooklyn Nets'))
+# print(team_points(game_dictionary, 'Charolotte Hornets'))
+
+
+#compare the number of points each team scored to decipher the winning team
 def winning_team(a_list_of_entries):
     brooklyn_nets_points = team_points(game_dictionary, "Brooklyn Nets")
     charlotte_hornets_points = team_points(game_dictionary, "Charlotte Hornets")
@@ -147,6 +166,7 @@ def winning_team(a_list_of_entries):
 #print(winning_team(game_dictionary))
 
 
+#find the player who has the longest name in the dataset
 def player_with_longest_name(a_list_of_entries):
     longest_name_count = 0
     longest_name = None
@@ -159,6 +179,8 @@ def player_with_longest_name(a_list_of_entries):
 
 #print(player_with_longest_name(game_dictionary))
 
+
+#decipher whether the player with the longest name also has the most amount of steals
 def long_name_steals_a_ton(a_list_of_entries):
     longest_name = player_with_longest_name(game_dictionary)
     most_steals_count = 0
@@ -173,6 +195,6 @@ def long_name_steals_a_ton(a_list_of_entries):
     else:
         return False
 
-print(long_name_steals_a_ton(game_dictionary))
+#print(long_name_steals_a_ton(game_dictionary))
 
 
